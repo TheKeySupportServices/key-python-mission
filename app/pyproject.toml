@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "mission"
+version = "0.1.0"
+description = "Python Software Engineer mission repo"
+authors = ["The Key <mission@thekeysupport.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "3.2.*"
+psycopg2 = "^2.9.3"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.8.0"
+flake8 = "^5.0.4"
+isort = "^5.10.1"
+debugpy = "^1.6.3"
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+exclude = '''
+(
+    /(
+        migrations
+        | \.venv
+        | templates
+    )/
+)
+'''
+
+[tool.isort]
+line_length = "100"
+skip_glob = "**/migrations/*.py"
+indent = "    "
+multi_line_output = "3"
+include_trailing_comma = "1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,52 @@
+{
+	"name": "root",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "web",
+	"runServices": [
+		"web"
+	],
+	"workspaceFolder": "/workspace/",
+	"remoteUser": "root",
+	"mounts": [
+		"source=key-pythom-mission-extensions,target=/root/.vscode-server/extensions,type=volume",
+		"source=key-pythom-mission-extensions-insiders,target=/root/.vscode-server-insiders/extensions,type=volume",
+	],
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"python.defaultInterpreterPath": "/usr/local/bin/python",
+				"python.linting.enabled": true,
+				"python.experiments.enabled": false,
+				"python.formatting.provider": "black",
+				"python.languageServer": "Pylance",
+				"python.linting.flake8Enabled": true,
+				"python.linting.flake8Args": [
+					"--config",
+					"/workspace/app/.flake8"
+				],
+				"python.formatting.blackArgs": [
+					"--config",
+					"/workspace/app/pyproject.toml"
+				],
+				"python.terminal.activateEnvironment": false,
+				"python.sortImports.path": "isort",
+				"python.sortImports.args": [
+					"--settings-path",
+					"/workspace/app/pyproject.toml"
+				],
+				"editor.formatOnSave": true,
+				"editor.rulers": [
+					100
+				]
+			},
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-azuretools.vscode-docker",
+				"esbenp.prettier-vscode",
+				"bungcip.better-toml",
+				"eamodio.gitlens"
+			]
+		}
+	}
+}
